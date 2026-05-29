@@ -76,6 +76,9 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-⚡ Optional: Install with uv (recommended for speed)
-```uv sync
-```
+### ⚡ Optional: Install with uv (recommended for speed)
+
+If you prefer using **uv** instead of pip:
+
+```bash
+uv sync
