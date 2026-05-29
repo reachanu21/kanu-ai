@@ -22,13 +22,21 @@ This is my first GitHub project — and the beginning of something much bigger.
 ## 📸 Screenshots
 
 ### Main UI
-*(Add your screenshot here once you push the repo)*
+
+## 📸 Screenshot
+
+![Kanu Screenshot](assets/screenshot.png)
+
+
 
 ---
 
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
+
 ```bash
 git clone https://github.com/<your-username>/kanu-ai
 cd kanu-ai
+```
+
