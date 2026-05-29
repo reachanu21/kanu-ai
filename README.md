@@ -63,10 +63,17 @@ This is my first GitHub project — and the beginning of something much bigger.
 ```bash
 git clone https://github.com/<your-username>/kanu-ai
 cd kanu-ai
-```
 
 ### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 .\.venv\Scripts\activate
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+
+⚡ Optional: Install with uv (recommended for speed)
+uv sync
