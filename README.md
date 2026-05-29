@@ -56,6 +56,127 @@ This is my first GitHub project — and the beginning of something much bigger.
 
 ---
 
+## 🗺️ Roadmap
+...
+
+
+
+
+
+
+
+
+
+## 📁 Project Structure
+
+```plaintext
+kanu-ai/
+├── assets/                 # Images, screenshots, future logo, demo GIF
+├── logs/                   # Runtime logs (optional)
+├── openclaw/               # Core agent framework
+│   ├── __init__.py
+│   ├── agent.py            # Agent logic + identity
+│   ├── llm.py              # Ollama model wrapper
+│   ├── memory.py           # Conversation memory system
+│   ├── tool.py             # Tool interface (coming soon)
+│   └── exceptions.py       # Custom exceptions
+├── chat_ui.py              # Streamlit chat interface
+├── assistant.py            # High-level assistant behavior
+├── requirements.txt        # Python dependencies
+├── uv.lock                 # uv dependency lockfile
+└── README.md               # Documentation
+
+
+
+
+---
+
+### 3️⃣ Add “Tech Stack”
+
+**Where to put it:**  
+Right **after** Project Structure.
+
+Paste this below the block you just added:
+
+```markdown
+## 🧰 Tech Stack
+
+- **Language:** Python 3.10
+- **UI:** Streamlit
+- **LLM Runtime:** Ollama (local models)
+- **Agent Framework:** Custom (openclaw)
+- **Memory:** In-memory conversation history (persistent storage coming soon)
+- **Package Management:** pip / uv
+
+
+## 🧱 Architecture Overview
+
+At a high level, Kanu is built as:
+
+```plaintext
+User ⇄ Streamlit UI (chat_ui.py)
+      ⇄ Assistant (assistant.py)
+      ⇄ Agent (openclaw/agent.py)
+      ⇄ LLM (openclaw/llm.py → Ollama)
+      ⇄ Memory (openclaw/memory.py)
+      ⇄ Tools (openclaw/tool.py - coming soon)
+
+
+
+---
+
+### 5️⃣ Add “Why Kanu?”
+
+**Where to put it:**  
+Right after **Architecture Overview**.
+
+Paste:
+
+```markdown
+## 🌸 Why Kanu?
+
+Kanu started as my first GitHub project — but also as something personal.
+
+I wanted:
+- an AI that runs **entirely on my machine**
+- that feels **warm, cozy, and kind**
+- that remembers me and our conversations
+- that looks more like a **café companion** than a cold chatbot
+
+Kanu is my attempt to blend:
+- **local-first tech** (privacy, control, ownership)
+- with a **soft, anime-inspired, café aesthetic**
+- and a **real sense of presence and personality**
+
+This repo is the beginning — I’m building it in the open, learning as I go.
+
+
+
+
+## 🤝 Contributing
+
+This is my first GitHub project, and I’m still learning — but contributions, ideas, and feedback are very welcome.
+
+If you’d like to contribute:
+
+1. **Fork** the repo
+2. **Create a branch** for your feature or fix
+3. **Make your changes**
+4. **Open a Pull Request** with a clear description
+
+You can also:
+- open **Issues** for bugs, ideas, or feature requests
+- suggest improvements to the agent, UI, or architecture
+
+Be kind — Kanu is cozy on purpose. 🌸
+
+
+
+
+
+
+
+
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
