@@ -1,7 +1,7 @@
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32-ff4b4b)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+Python
+Streamlit
+License: MIT
+Status
 
 # ☕💗 Kanu — Anu’s Local AI Assistant
 
@@ -14,12 +14,12 @@ This is my first GitHub project — and the beginning of something much bigger.
 
 ## ✨ Features
 
-- 🧠 **Custom Agent architecture** (LLM + Memory + Tools)
-- 🤖 **Local LLM via Ollama** (no cloud required)
-- 💬 **Chat interface with history**
-- ☕ **Café‑themed UI** with anime banner and warm colors
-- ❤️ **Personalized assistant identity: Kanu**
-- 📝 **Memory system** for contextual conversations
+- 🧠 **Custom Agent architecture** (LLM + Memory + Tools)  
+- 🤖 **Local LLM via Ollama** (no cloud required)  
+- 💬 **Chat interface with history**  
+- ☕ **Café‑themed UI** with anime banner and warm colors  
+- ❤️ **Personalized assistant identity: Kanu**  
+- 📝 **Memory system** for contextual conversations  
 - 🔧 **Extensible tool system** (coming soon)
 
 ---
@@ -28,44 +28,35 @@ This is my first GitHub project — and the beginning of something much bigger.
 
 ### Main UI
 
-## 📸 Screenshot
-
-![Kanu Screenshot](assets/screenshot.png)
-
-## 🗺️ Roadmap
-
-### ✅ Completed
-- Local LLM integration via Ollama
-- Streamlit chat UI with history
-- Agent architecture (LLM + Memory + Identity)
-- Clean project structure
-- GitHub setup and documentation
-
-### 🚧 In Progress
-- Tool system (search, calculator, file ops)
-- Improved UI styling and layout
-- Persistent memory storage
-
-### 🔮 Coming Soon
-- RAG (Retrieval-Augmented Generation)
-- Voice mode (speech-to-text + text-to-speech)
-- Avatar UI with animations
-- Multi-agent support
-- Dark mode toggle
-
+Kanu Screenshot
 
 ---
 
 ## 🗺️ Roadmap
-...
 
+### ✅ Completed
 
+- Local LLM integration via Ollama  
+- Streamlit chat UI with history  
+- Agent architecture (LLM + Memory + Identity)  
+- Clean project structure  
+- GitHub setup and documentation
 
+### 🚧 In Progress
 
+- Tool system (search, calculator, file ops)  
+- Improved UI styling and layout  
+- Persistent memory storage
 
+### 🔮 Coming Soon
 
+- RAG (Retrieval-Augmented Generation)  
+- Voice mode (speech-to-text + text-to-speech)  
+- Avatar UI with animations  
+- Multi-agent support  
+- Dark mode toggle
 
-
+---
 
 ## 📁 Project Structure
 
@@ -86,28 +77,17 @@ kanu-ai/
 ├── uv.lock                 # uv dependency lockfile
 └── README.md               # Documentation
 
-
-
-
 ---
+```
 
-### 3️⃣ Add “Tech Stack”
-
-**Where to put it:**  
-Right **after** Project Structure.
-
-Paste this below the block you just added:
-
-```markdown
 ## 🧰 Tech Stack
 
-- **Language:** Python 3.10
-- **UI:** Streamlit
-- **LLM Runtime:** Ollama (local models)
-- **Agent Framework:** Custom (openclaw)
-- **Memory:** In-memory conversation history (persistent storage coming soon)
+- **Language:** Python 3.10  
+- **UI:** Streamlit  
+- **LLM Runtime:** Ollama (local models)  
+- **Agent Framework:** Custom (openclaw)  
+- **Memory:** In-memory conversation history (persistent storage coming soon)  
 - **Package Management:** pip / uv
-
 
 ## 🧱 Architecture Overview
 
@@ -120,38 +100,26 @@ User ⇄ Streamlit UI (chat_ui.py)
       ⇄ LLM (openclaw/llm.py → Ollama)
       ⇄ Memory (openclaw/memory.py)
       ⇄ Tools (openclaw/tool.py - coming soon)
+```
 
-
-
----
-
-### 5️⃣ Add “Why Kanu?”
-
-**Where to put it:**  
-Right after **Architecture Overview**.
-
-Paste:
-
-```markdown
 ## 🌸 Why Kanu?
 
 Kanu started as my first GitHub project — but also as something personal.
 
 I wanted:
+
 - an AI that runs **entirely on my machine**
 - that feels **warm, cozy, and kind**
 - that remembers me and our conversations
 - that looks more like a **café companion** than a cold chatbot
 
 Kanu is my attempt to blend:
+
 - **local-first tech** (privacy, control, ownership)
 - with a **soft, anime-inspired, café aesthetic**
 - and a **real sense of presence and personality**
 
 This repo is the beginning — I’m building it in the open, learning as I go.
-
-
-
 
 ## 🤝 Contributing
 
@@ -165,17 +133,11 @@ If you’d like to contribute:
 4. **Open a Pull Request** with a clear description
 
 You can also:
+
 - open **Issues** for bugs, ideas, or feature requests
 - suggest improvements to the agent, UI, or architecture
 
 Be kind — Kanu is cozy on purpose. 🌸
-
-
-
-
-
-
-
 
 ## 🚀 Getting Started
 
@@ -185,12 +147,14 @@ Be kind — Kanu is cozy on purpose. 🌸
 git clone https://github.com/<your-username>/kanu-ai
 cd kanu-ai
 ```
+
 ### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 .\.venv\Scripts\activate
 ```
+
 ### 3. Install dependencies
 
 ```bash
@@ -203,3 +167,4 @@ If you prefer using **uv** instead of pip:
 
 ```bash
 uv sync
+```
