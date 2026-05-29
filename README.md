@@ -77,5 +77,5 @@ pip install -r requirements.txt
 ```
 
 ⚡ Optional: Install with uv (recommended for speed)
-uv sync
+```uv sync
 ```
