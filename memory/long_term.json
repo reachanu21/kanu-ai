@@ -2,7 +2,7 @@
   "preferences": {
     "favorite_color": {
       "value": "blue",
-      "confidence": 1,
+      "confidence": 0.9983173730039573,
       "last_updated": 1780261619.7896745,
       "reinforcement": 1
     }
