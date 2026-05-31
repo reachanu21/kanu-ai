@@ -81,4 +81,10 @@ class MemoryManager:
         - Look for phrases like "every day", "usually", "always", "I tend to"
         - Store them as habits with low confidence (they'll strengthen if repeated)
         """
-        text = content.lower
+        text = content.lower()
+        triggers = ("every day", "usually", "always", "i tend to")
+        if not any(t in text for t in triggers):
+            return
+
+        slug = re.sub(r"\W+", "_", text[:48]).strip("_") or "habit"
+        self.ltm.update("habits", slug, content[:200], confidence_boost=0.05)

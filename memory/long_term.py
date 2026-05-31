@@ -76,7 +76,7 @@ class LongTermMemory:
     # ----------------------------------------------------
     # Update memory entries
     # ----------------------------------------------------
-    def update(self, category, key, value, confidence_boost=0.1):
+    def update(self, category, key, value, confidence_boost=0.1, confidence=None):
         data = self.load()
 
         if category not in data:
@@ -85,31 +85,82 @@ class LongTermMemory:
         entry = data[category].get(key)
 
         if entry is None:
-            # New entry
+            initial = confidence if confidence is not None else min(1.0, 0.5 + confidence_boost)
             data[category][key] = {
                 "value": value,
-                "confidence": min(1.0, 0.5 + confidence_boost),
+                "confidence": min(1.0, initial),
                 "reinforcement": 1,
                 "last_updated": time.time()
             }
         else:
-            # Existing entry → reinforce
             entry["value"] = value
             entry["reinforcement"] += 1
-            entry["confidence"] = min(1.0, entry["confidence"] + confidence_boost)
+            boost = confidence_boost if confidence is None else max(0.0, confidence - entry["confidence"])
+            entry["confidence"] = min(1.0, entry["confidence"] + boost)
             entry["last_updated"] = time.time()
 
         self.save(data)
 
+    def decay(self, half_life_days=30, threshold=0.25):
+        """Reduce confidence over time; drop entries below threshold."""
+        data = self.load()
+        now = time.time()
+        half_life_sec = max(half_life_days, 1) * 86400
+        changed = False
+
+        for items in data.values():
+            for key in list(items.keys()):
+                entry = items[key]
+                if not isinstance(entry, dict):
+                    continue
+
+                age = max(0.0, now - entry.get("last_updated", now))
+                factor = 0.5 ** (age / half_life_sec)
+                entry["confidence"] = entry.get("confidence", 0.5) * factor
+
+                if entry["confidence"] < threshold:
+                    del items[key]
+                changed = True
+
+        if changed:
+            self.save(data)
+
+    def summarize(self) -> str:
+        data = self.load()
+        lines = []
+
+        for category, items in data.items():
+            for key, entry in items.items():
+                if isinstance(entry, dict):
+                    value = entry.get("value", "")
+                    conf = entry.get("confidence", 0.0)
+                    if conf < 0.25:
+                        continue
+                    lines.append(f"- {category}/{key}: {value}")
+                elif entry:
+                    lines.append(f"- {category}/{key}: {entry}")
+
+        return "\n".join(lines)
+
     # ----------------------------------------------------
     # Forget entries
     # ----------------------------------------------------
-    def forget(self, category, key):
+    def forget(self, target: str):
+        """Remove entries whose key or value contains target (case-insensitive)."""
         data = self.load()
+        needle = target.lower()
+        removed = False
 
-        if category in data and key in data[category]:
-            del data[category][key]
+        for items in data.values():
+            for key in list(items.keys()):
+                entry = items[key]
+                value = entry.get("value", entry) if isinstance(entry, dict) else entry
+                hay = f"{key} {value}".lower()
+                if needle in hay:
+                    del items[key]
+                    removed = True
+
+        if removed:
             self.save(data)
-            return True
 
-        return False
+        return removed
