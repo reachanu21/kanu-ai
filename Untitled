@@ -1,0 +1,20 @@
+def ingest_document(self, file):
+    import os
+    import tempfile
+    import PyPDF2
+
+    # 1. Read file content
+    if file.type == "application/pdf":
+        reader = PyPDF2.PdfReader(file)
+        text = "\n".join(page.extract_text() or "" for page in reader.pages)
+    else:
+        text = file.read().decode("utf-8", errors="ignore")
+
+    # 2. Chunk text
+    chunks = self.chunk_text(text)
+
+    # 3. Add chunks to RAG
+    for chunk in chunks:
+        self.rag.add_document(chunk)
+
+    return text
